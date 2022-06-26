@@ -1,3 +1,4 @@
+const Basic_Api = "https://moviesmern.herokuapp.com/movies/"
 async function getDataFromServer(){
     try{
         return await fetch("https://moviesmern.herokuapp.com/movies/all")
@@ -5,7 +6,7 @@ async function getDataFromServer(){
     }
     catch(eror){"somthing went wrong"}
 }
-function printJson(){
+function printJsonToScreen(){
     getDataFromServer()
     .then(res => {res.data.forEach(field => {
         document.getElementById("movie_list").innerHTML += `<li> ${field.movieName} 
@@ -36,7 +37,7 @@ function creatUserObj(){
 
 async function addMovie(){
     try{
-        await fetch("https://moviesmern.herokuapp.com/movies/saveMovie",
+        await fetch(`${Basic_Api}`,
         {
             method:"POST" ,
             body:JSON.stringify(creatUserObj()),
@@ -48,3 +49,19 @@ async function addMovie(){
     }
 }
 
+async function searchMovieByName(){
+    try{
+        return await fetch(`${Basic_Api}movie/searchByName/${document.getElementById("search_input").value}`)
+        .then(res => res.json())
+    }
+    catch(err){}
+    finally{}
+}
+
+function showMovieByName() {
+    document.getElementById("print_search").innerHTML = '';
+    document.getElementById("search_click").disabled = true;
+    searchMovieByName()
+    .then(res => res.data.forEach(movieItem =>
+        document.getElementById("print_search").innerHTML += `<span> ${movieItem.movieName}</span>`))
+}
