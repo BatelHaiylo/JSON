@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+    <h1>Json Print</h1>
+    <button onclick="printJson()">SHOW</button>
+    <button onclick="addMovie()">create</button>
+    <ol id="movie_list"></ol>
+
+    <div>
+        <form action="">
+            <label for="date">Premiere screening date:</label><br>
+            <input type="text" name="date" id="movie_date"><br><br>
+            <label for="image">Link to the movie poster:</label><br>
+            <input type="text" name="image" id="movie_image"><br><br>
+            <label for="link">Link to the movie:</label><br>
+            <input type="text" name="link" id="movie_link"><br><br>
+            <label for="name">Movie name:</label><br>
+            <input type="text" name="name" id="movie_name"><br><br>
+            <label for="rate">Rating:</label><br>
+            <input type="text" name="rate" id="movie_rate"><br><br>
+            <label for="synopsis">synopsis:</label><br>
+            <input type="text" name="synopsis" id="movie_synopsis"><br><br>
+        </form>
+        <button onclick="creatUserObj()">ADD</button>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>
